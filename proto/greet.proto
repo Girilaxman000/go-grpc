@@ -11,11 +11,26 @@ service GreetService{
     // client streaming
     rpc SayHelloClientStreaming(stream HelloRequest) returns (MessagesList);
 
+    //stream is list of messages
     rpc SayHelloBidirectionalStreaming(stream HelloRquest) returns (stream HelloResponse);
 }
 
 message NoParam{}
 
+message HelloRequest{
+    string name = 1;
+}
+
 message HelloResponse{
     string message = 1;
 }
+
+message NamesList{
+    repeated string names = 1;
+}
+
+message MessagesList{
+    repeated string messages = 1;
+}
+
+
