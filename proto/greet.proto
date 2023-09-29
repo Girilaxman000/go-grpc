@@ -1,6 +1,7 @@
 syntax="proto3";
 option go_package = "./proto";
 package greet_service;
+//only this are required to start off these 4 different types of RPC calls between client and server.
 service GreetService{
     rpc SayHello(NoParam) returns (HelloResponse);
 
@@ -12,7 +13,7 @@ service GreetService{
     rpc SayHelloClientStreaming(stream HelloRequest) returns (MessagesList);
 
     //stream is list of messages
-    rpc SayHelloBidirectionalStreaming(stream HelloRquest) returns (stream HelloResponse);
+    rpc SayHelloBidirectionalStreaming(stream HelloRequest) returns (stream HelloResponse);
 }
 
 message NoParam{}
